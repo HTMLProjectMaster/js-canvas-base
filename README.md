@@ -1,5 +1,5 @@
 # js-canvas-base
-Javascript canvas engine.
+Starter kit for js canvas projects
 
 
 This is a javascript canvas base for all kind of project.

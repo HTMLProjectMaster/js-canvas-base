@@ -21,6 +21,7 @@ let system = {
 		requestAnimationFrame(system.loop)
 		if(canvas.item.width != window.innerWidth || canvas.item.height != window.innerHeight){canvas.rescale()}
 		canvas.refresh()
+		canvas.clear()
 	},
 	sleep: function(tick){return new Promise(resolve => setTimeout(resolve, tick))},
 	load: function(type, id, src, dir){

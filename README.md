@@ -5,10 +5,10 @@ Starter kit for js canvas projects
 This is a javascript canvas base for all kind of project.
 
 It contains: 
- - index.html         => main html script
- - canvas.js          => canvas module
- - core.js            => system module
- - library.js         => library module
+ - index.html
+ - canvas.js
+ - core.js
+ - library.js
  
  
 core.js:

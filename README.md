@@ -12,22 +12,21 @@ It contains:
  
  
 core.js:
-
  - contains the system object
-    =>  its function are:
+    -  its function are:
       - init()
       - loop()
       - sleep()
       - load()
       - call()   
-    => its variables are:
+    - its variables are:
       - dom
       - objectArray
       
 
 canvas.js:
  - contains the canvas object
-    => its functions are:
+    - its functions are:
       - init()
       - rescale()
       - clear()

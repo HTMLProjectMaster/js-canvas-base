@@ -13,15 +13,15 @@ It contains:
  
 core.js:
  - contains the system object
-    -  its function are:
-      - init()
-      - loop()
-      - sleep()
-      - load()
-      - call()   
-    - its variables are:
-      - dom
-      - objectArray
+   -  its function are:
+       - init()
+       - loop()
+       - sleep()
+       - load()
+       - call()   
+   - its variables are:
+     - dom
+     - objectArray
       
 
 canvas.js:

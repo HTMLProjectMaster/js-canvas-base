@@ -12,8 +12,10 @@ let canvas = {
 	},
 	refresh: function(){
 		this.clear()
-		for(const element of system.objectArray){
-			element.draw()
+		for(const layers of system.layout){
+			for(let i = 0; i < layers.content.length; i++){	
+				layers.content[i].draw()
+			}
 		}
 	}
 }

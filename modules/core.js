@@ -1,9 +1,9 @@
 let system = {
+	layout: new Array,
 	dom: {
 		head: undefined,
 		body: undefined
-	},
-	objectArray: new Array,
+	},	
 	init: function(){
 		console.log('INFO:	system started')
 		system.sleep(100).then(() => {	
@@ -29,18 +29,62 @@ let system = {
 		element.id = id
 		element.src = src
 		dir.appendChild(element)
+		console.log('INFO:	loaded: "' + element.id + '"')
 	},
-	call: function(obj, pos){
-		let element = new obj(pos)
-		system.objectArray.push(element)
+	layer: function(name){
+		for(let i = 0; i < system.layout.length; i++){
+			if((system.layout[i].name == name)){	
+				console.log('WARNING:	layer: "' + name + '" already exist, overwriting')}
+				system.free(name)
+		}	
+		let layer = new Object()
+		layer.name = name
+		layer.content = new Array
+		system.layout.push(layer)
+		console.log('INFO:	layer: "' + name + '" created')	
 	},
-	clear: function(){
-		for(let i = 0; i < system.objectArray.length; i++){
-			if(system.objectArray[i].del === true){
-				system.objectArray.splice(i, 1)
-				i--
+	call: function(object, name){	//example:	system.call(dummyCube({x: 25, y: 0}, 'blue'), 'layer_2')	system.call(dummyCube({x: 0, y: 0}, 'red'), 'layer_1')
+		system.layer(name)
+		for(const layers of system.layout){
+			if(layers.name == name){	
+				let element = object
+				layers.content.push(object)
+				console.log('INFO:	called: "' + element.name + '"')
 			}
 		}
+	},
+	stow: function(name, position){	
+		for(var i = 0; i < system.layout.length; i++){
+			if(system.layout[i].name == name){	
+				console.log('INFO:	moved: "' + name + '" to position: "' + position + '"')
+				if (position >= system.layout.length) {
+					let j = position - system.layout.length + 1;
+					while (j--) {
+					system.layout.push(undefined);
+					}
+				}
+				system.layout.splice(position, 0, system.layout.splice(i, 1)[0]);
+			}
+		}
+	},
+	free: function(name){
+		for(let i = 0; i < system.layout.length; i++){
+			if(system.layout[i].name == name){
+				system.layout.splice(i, 1)
+				console.log('INFO:	freed: "' + name + '"')
+			}
+		}
+	},
+	clear: function(){
+		for(const layers of system.layout){
+			for(let i = 0; i < layers.content.length; i++){
+				if(layers.content[i].del == true){
+					console.log('INFO:	deleted: "' + layers.content[i].name + '"')
+					layers.content.splice(i, 1)
+				}
+			}
+		}
+
 	}
 }
 system.init()

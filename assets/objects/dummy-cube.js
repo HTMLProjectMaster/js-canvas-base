@@ -1,10 +1,16 @@
 function dummyCube(pos, col, size){	
-	return {
+	return {	
 		name: 'cube',
+		position: {
+			x: pos.x,
+			y: pos.y
+		},
+		color: col,
+		scale: size,
 		draw: function(){
 			canvas.context.beginPath();
-			canvas.context.fillStyle = col;
-			canvas.context.fillRect(pos.x, pos.y, pos.x + size, pos.y + size); 
+			canvas.context.fillStyle = this.color;
+			canvas.context.fillRect(this.position.x, this.position.y, this.scale, this.scale); 
 			canvas.context.closePath()	
 		}
 	}

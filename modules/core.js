@@ -34,19 +34,24 @@ let system = {
 	layer: function(name){
 		for(let i = 0; i < system.layout.length; i++){
 			if((system.layout[i].name == name)){	
-				console.log('WARNING:	layer: "' + name + '" already exist, overwriting')}
+				console.log('WARNING:	layer: "' + name + '" already exist, overwriting')
 				system.free(name)
-		}	
+			}
+		}
 		let layer = new Object()
 		layer.name = name
 		layer.content = new Array
 		system.layout.push(layer)
 		console.log('INFO:	layer: "' + name + '" created')	
+		
 	},
-	call: function(object, name){	//example:	system.call(dummyCube({x: 25, y: 0}, 'blue'), 'layer_2')	system.call(dummyCube({x: 0, y: 0}, 'red'), 'layer_1')
-		system.layer(name)
+	call: function(object, layerName){	//example:	system.call(dummyCube({x: 25, y: 0}, 'blue'), 'layer_2')	system.call(dummyCube({x: 0, y: 0}, 'red'), 'layer_1')
+		if(!system.layout.some(layer => layer.name == layerName)){
+			system.layer(layerName)
+		}
+		
 		for(const layers of system.layout){
-			if(layers.name == name){	
+			if(layers.name == layerName){	
 				let element = object
 				layers.content.push(object)
 				console.log('INFO:	called: "' + element.name + '"')

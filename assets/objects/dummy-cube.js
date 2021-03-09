@@ -1,6 +1,8 @@
-function dummyCube(pos, col, size){	
+function dummyCube(pos, col, type, name, size, index){	
 	return {	
-		name: 'cube',
+		index: index,
+		name: name,
+		type: type,
 		position: {
 			x: pos.x,
 			y: pos.y

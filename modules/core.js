@@ -24,6 +24,7 @@ let system = {
 		system.clear()
 	},
 	sleep: function(tick){return new Promise(resolve => setTimeout(resolve, tick))},
+	rng: function(max){return Math.floor(Math.random() * Math.floor(max))},
 	load: function(type, id, src, dir){
 		let element = document.createElement(type)
 		element.id = id
@@ -92,4 +93,5 @@ let system = {
 
 	}
 }
-system.init()
+
+window.onload = system.init()

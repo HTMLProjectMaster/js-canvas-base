@@ -1,4 +1,4 @@
-let canvas = {
+const canvas = {
 	init: function(){
 		this.item = document.getElementsByTagName('canvas')[0]
 		this.context = this.item.getContext('2d')
@@ -12,7 +12,7 @@ let canvas = {
 	},
 	refresh: function(){
 		this.clear()
-		for(const layers of system.layout){
+		for(const layers of items.layout){
 			for(let i = 0; i < layers.content.length; i++){	
 				layers.content[i].draw()
 			}

@@ -21,7 +21,7 @@ core.js:
        - call()   
    - its variables are:
      - dom
-     - objectArray
+     - objectArray (outdated, now refered as item module)
       
 
 canvas.js:

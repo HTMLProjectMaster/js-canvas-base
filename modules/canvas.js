@@ -14,7 +14,7 @@ const canvas = {
 		this.clear()
 		for(const layers of item.layout){
 			for(let i = 0; i < layers.content.length; i++){	
-				layers.content[i].draw()
+				layers.content[i].update()
 			}
 		}
 	}

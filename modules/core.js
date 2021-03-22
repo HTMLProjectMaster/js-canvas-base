@@ -28,7 +28,7 @@ const system = {
 		dir.appendChild(element)
 		console.log('INFO:	loaded: "' + element.id + '"')
 	},
-	call: function(object, layerName){
+	call: function(object, layerName, silent){
 		if(!item.layout.some(layer => layer.name == layerName)){
 			item.layer(layerName)
 		}
@@ -36,7 +36,9 @@ const system = {
 		for(const layers of item.layout){
 			if(layers.name == layerName){
 				layers.content.push(object)
-				console.log('INFO:	called: "' + object.name + '"')
+				if(!silent){
+					console.log('INFO:	called: "' + object.name + '"')
+				}
 			}
 		}
 	}
